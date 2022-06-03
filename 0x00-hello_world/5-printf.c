@@ -3,7 +3,7 @@
 /**
  * main: Print with printf()
  *
- * Description: Function to send output to stdout vua printf()
+ * Description - Function to send output to stdout vua printf()
  * Return: Returns function
  */
 int main(void)
