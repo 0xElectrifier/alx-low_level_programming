@@ -1,7 +1,14 @@
 #include <stdio.h>
 
+/**
+ * main - Function to print string
+ *
+ * Description: First alx C file
+ * Return: Returns an integer, 0
+ */
+
 int main(void)
-{	/*Function to print string*/
+{
 
 	puts("\"Programming is like building a multilingual puzzle");
 
