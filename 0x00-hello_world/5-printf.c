@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main: Print with printf()
+ * main - Print with printf()
  *
  * Description - Function to send output to stdout vua printf()
  * Return: Returns function
