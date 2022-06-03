@@ -1,4 +1,4 @@
-#include <string.h>
+#include <stdio.h>
 
 int main(void)
 {	/*Function to print string*/
