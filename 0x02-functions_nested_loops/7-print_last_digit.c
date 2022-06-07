@@ -11,6 +11,6 @@ int print_last_digit(int n)
 	int lastDigit = n % 10;
 
 	while (lastDigit > 9)
-		lastDigit = n % 10;
+		lastDigit = lastDigit % 10;
 	return (lastDigit);
 }
