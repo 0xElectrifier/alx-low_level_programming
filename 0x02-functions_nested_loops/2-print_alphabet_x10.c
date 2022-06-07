@@ -20,6 +20,6 @@ void print_alphabet_x10(void)
 			lowercase++;
 		}
 		i++;
+		_putchar('\n');
 	}
-	_putchar('\n');
 }
