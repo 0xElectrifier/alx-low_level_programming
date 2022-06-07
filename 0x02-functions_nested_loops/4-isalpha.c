@@ -6,7 +6,7 @@
  * @c: Takes int as Argument
  * Description: Checks for uppercase char
  * Return: 1 if "c" is a letter, lowercase or uppercase,
- * 		else, returns 0.
+ *		else, returns 0.
  */
 int _isalpha(int c)
 {
