@@ -3,13 +3,14 @@
 
 /**
  * _abs - Computes absolute value of an integer
- * @int: Takes any integer value as argument
+ * @n: Takes any integer, n as argument
  * Description: Computes absolute value of an integer
  * Return: Always 0.
  */
-int _abs(int)
+int _abs(int n)
 {
-	int j;
-
-	abs(j);
+	if (abs(n) >= 0)
+		return (n);
+	else
+		return (-n);
 }
