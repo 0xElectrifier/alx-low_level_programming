@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * main - Function that prints '_putchar'
@@ -28,8 +27,10 @@ int main(void)
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
- */
+ *
+ *
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+*/
