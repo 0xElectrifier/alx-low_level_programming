@@ -1,11 +1,12 @@
 #include "main.h"
 
 /**
- * main - check the code
+ * print_alphabet - check the code
  *
+ * Description: Print lowercase letters with '_putchar' function.
  * Return: Always 0.
  */
-int main(void)
+void print_alphabet(void)
 {
 	char lowercase = 'a';
 
@@ -14,6 +15,5 @@ int main(void)
 		_putchar(lowercase);
 		lowercase++;
 	}
-	
-	return (0);
+	_putchar('\n');
 }
