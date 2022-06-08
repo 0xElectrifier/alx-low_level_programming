@@ -11,3 +11,28 @@ if ((i == '2') && (j == '3') &&
                                                 (k == '5') && (l == '9'))
                                                 break;
 
+
+
+void print_to_98(int n)
+{
+        int i, j;
+
+        if (n <= 98)
+        {
+                for (i = n; i <= 98; i++)
+                {
+                        _putchar(i + '0');
+                        _putchar(',');
+                        _putchar(' ');
+                }
+        } else if (n >= 98)
+        {
+                for (j = n; j >= 98; j++)
+                {
+                        _putchar(j + '0');
+                        _putchar(',');
+                        _putchar(' ');
+                }
+        }
+}
+
