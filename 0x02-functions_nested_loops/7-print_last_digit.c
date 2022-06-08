@@ -15,6 +15,9 @@ int print_last_digit(int n)
 
 	lastDigit = n % 10;
 
+	if (lastDigit < 0)
+		lastDigit < -lastDigit;
+
 /**	if (lastDigit > 9)
  *	{
  *		lastDigit = lastDigit % 10;
