@@ -18,11 +18,18 @@ void jack_bauer(void)
 			{
 				for (l = '0'; l <= '9'; l++)
 				{
+/**
+ *					if ((i = '2') && (j > 3))
+ *					break;
+ */
 					_putchar(i);
 					_putchar(j);
 					_putchar(':');
 					_putchar(k);
 					_putchar(l);
+					if ((i = '2') && (j = '3') && 
+						(k = '5') && (l = '9'))
+						break;
 					_putchar('\n');
 				}
 			}
