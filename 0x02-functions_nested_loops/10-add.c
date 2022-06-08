@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- * main - Check the code
- * @i, j: Two parameters
+ * add - Adds 2 numbers
+ * @i: First parameter
+ * @j: Second parameter
  * Description: Prints things
  * Return: Integer
  */
