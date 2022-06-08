@@ -1,0 +1,10 @@
+**
+ *      if (lastDigit > 9)
+ *      {
+ *              lastDigit = lastDigit % 10;
+ *
+ *              while (lastDigit > 9)
+ *                      lastDigit = lastDigit % 10;
+ *      }
+ */
+

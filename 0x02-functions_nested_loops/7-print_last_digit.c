@@ -18,15 +18,7 @@ int print_last_digit(int n)
 	if (lastDigit < 0)
 		lastDigit < -lastDigit;
 
-/**	if (lastDigit > 9)
- *	{
- *		lastDigit = lastDigit % 10;
- *
- *		while (lastDigit > 9)
- *			lastDigit = lastDigit % 10;
- *	}
- */
- 	_putchar(lastDigit + '0');
- 
+	_putchar(lastDigit + '0');
+
 	return (lastDigit);
 }
