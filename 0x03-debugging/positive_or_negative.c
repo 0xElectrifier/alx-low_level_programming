@@ -5,7 +5,7 @@
 
 /**
  * positive_or_negative - Function to check for positivity/negativity of number
- *
+ *@j: Takes integer j as arguement
  * Description: Take a randoom number and check if result is
  *		positive or negative
  * Return: Return integer(0)

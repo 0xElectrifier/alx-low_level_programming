@@ -1,6 +1,7 @@
 #include "main.h"
 
-/** main - Main function to check for a negative or positive number
+/**
+ * main - Main function to check for a negative or positive number
  * void: Takes no arguement
  * Description: Takes an arguement as checks if it is positive or negative
  * Return: 0
