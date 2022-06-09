@@ -2,7 +2,7 @@
 
 /**
  * main - Main function to check for a negative or positive number
- * void: Takes no arguement
+ * @void: Takes no Parameter
  * Description: Takes an arguement as checks if it is positive or negative
  * Return: 0
  */
