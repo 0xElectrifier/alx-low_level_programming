@@ -16,24 +16,21 @@ void print_remaining_days(int day, int year)
 		{
 			if (year % 400 == 0)
 			{
-				if (day >= 60)
-					day++;
-				else
-					day = day;
+				printf("Day of the year: %d\n", day);
+				printf("Remaining days: %d\n", 366 - day);
+
 			}
 			else
-				day = day;
+			{
+				printf("Day of the year: %d\n", day);
+				printf("Remaining days: %d\n", 365 - day);
+			}
 		}
 		else
 		{
-			if (day >= 60)
-				day++;
-			else
-				day = day;
+			printf("Day of the year: %d\n", day);
+			printf("Remaining days: %d\n", 366 - day);
 		}
-		printf("Day of the year: %d\n", day);
-		printf("Remaining days: %d\n", 366 - day);
-
 	}
 	else
 	{
