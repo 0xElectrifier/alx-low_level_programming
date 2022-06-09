@@ -8,7 +8,7 @@
 * Return: void
 */
 
-void print_remaining_days(int day)
+void print_remaining_days(int day, int year)
 {
 	if (year % 4 == 0)
 	{
