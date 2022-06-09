@@ -4,13 +4,11 @@
 /**
 * print_remaining_days - takes a date and prints how many days are
 * left in the year, taking leap years into account
-* @month: month in number format
 * @day: day of month
-* @year: year
 * Return: void
 */
 
-void print_remaining_days(int month, int day, int year)
+void print_remaining_days(int day)
 {
 	if (year % 4 == 0)
 	{
@@ -23,6 +21,8 @@ void print_remaining_days(int month, int day, int year)
 				else
 					day = day;
 			}
+			else
+				day = day;
 		}
 		else
 		{
