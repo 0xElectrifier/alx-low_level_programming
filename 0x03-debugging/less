@@ -1,0 +1,22 @@
+positive_or_negative.c: In function ‘positive_or_negative’:
+positive_or_negative.c:14:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   14 | {
+      | ^
+positive_or_negative.c:29: error: expected ‘{’ at end of input
+In file included from positive_or_negative.c:4:
+main.h:3:30: error: unused parameter ‘n’ [-Werror=unused-parameter]
+    3 | int positive_or_negative(int n)
+      |                          ~~~~^
+positive_or_negative.c:29: error: control reaches end of non-void function [-Werror=return-type]
+cc1: all warnings being treated as errors
+0-main.c: In function ‘positive_or_negative’:
+0-main.c:9:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+    9 | {
+      | ^
+0-main.c:17: error: expected ‘{’ at end of input
+In file included from 0-main.c:1:
+main.h:3:30: error: unused parameter ‘n’ [-Werror=unused-parameter]
+    3 | int positive_or_negative(int n)
+      |                          ~~~~^
+0-main.c:17: error: control reaches end of non-void function [-Werror=return-type]
+cc1: all warnings being treated as errors
