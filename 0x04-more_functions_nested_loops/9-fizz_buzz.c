@@ -4,9 +4,9 @@
 /**
  * main - FizzBuzz
  *
- * Return: nothing
+ * Return: 0;
  */
-void main(void)
+int main(void)
 {
 	int i;
 
@@ -21,9 +21,10 @@ void main(void)
 		else
 			printf("%d", i);
 
-		if (i == 100)
-			break;
-		printf(" ");
+		if (i != 100)
+			printf(" ");
 	}
 	printf("\n");
+
+	return (0);
 }
