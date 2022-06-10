@@ -1,7 +1,7 @@
 #include "main.h"
 /**
 * print_triangle - function that prints a triangle.
-* @size: size number of square
+* @size: size as int
 * Return: None.
 */
 void print_triangle(int size)
