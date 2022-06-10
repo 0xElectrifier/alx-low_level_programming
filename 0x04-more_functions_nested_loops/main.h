@@ -22,4 +22,8 @@ void print_diagonal(int n);
 
 void print_square(int size);
 
-@endif /* HOLBERTON_H*/
+void print_triangle(int size);
+
+void print_mumber(int n);
+
+#endif /* HOLBERTON_H */
