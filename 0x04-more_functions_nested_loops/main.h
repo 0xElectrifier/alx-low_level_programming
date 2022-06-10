@@ -1,3 +1,5 @@
+#ifndef HOLBERTON_H
+#define HOBLERTON_H
 #include <stdio.h>
 
 int _isupper(int c);
@@ -19,3 +21,5 @@ void print_line(int n);
 void print_diagonal(int n);
 
 void print_square(int size);
+
+@endif /* HOLBERTON_H*/
