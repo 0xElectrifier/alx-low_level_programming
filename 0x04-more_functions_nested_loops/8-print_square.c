@@ -9,6 +9,7 @@
 void print_square(int size)
 {
 	char square;
+	int i, j;
 
 	square = '#';
 
