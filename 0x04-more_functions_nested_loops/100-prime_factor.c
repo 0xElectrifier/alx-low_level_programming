@@ -7,21 +7,21 @@
  */
 int main(void)
 {
-        long i, n;
+	long i, n;
 
-        n = 612852475143;
+	n = 612852475143;
 
-        for (i = 2; i <= n; i++)
-        {
-	       	while (n % i == 0)
-                {
-		 	n = n / i;
+	for (i = 2; i <= n; i++)
+	{
+		while (n % i == 0)
+		{
+			n = n / i;
 			if (n == 1)
 			{
 				printf("%ld\n", i);
 				break;
 			}
 		}
-        }
-        return (0);
-}       
+	}
+	return (0);
+}
