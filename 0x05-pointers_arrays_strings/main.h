@@ -10,6 +10,6 @@ int _strlen(char *s);
 
 void _puts(char *str);
 
-void _putchar(char n);
+int _putchar(char n);
 
 void print_rev(char *s);
