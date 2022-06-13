@@ -5,28 +5,25 @@
 */
 void print_number(int n)
 {
-	unsigned int n1, n2, c, v = 1;
+	unsigned int i, a, n1;
 
 	if (n < 0)
 	{
 		n = n * -1;
-		_putchar('-');
+		putchar('-');
 	}
 	n1 = n;
-	n2 = n1;
-	if (n1 > 9)
-	{
-		while (n1 >= 10)
-		{
-			v = v * 10;
-			n1 = n1 / 10;
-		}
-	_putchar((n2 / v) + '0');
-			v = v / 10;
 
-			for (c = v; c >= 1; c = c / 10)
-				_putchar((n2 / c) % 10 + '0');
+	if (n > 9)
+	{
+		while (n > 9)
+		{
+			n = n / 10;
+			a = a * 10;
+		}
+		for (; a >= 1; a = a / 10)
+			putchar(((n1 / a) % 10) + '0');
 	}
 	else
-			_putchar(n1 + '0');
+		putchar(n1 + '0');
 }
