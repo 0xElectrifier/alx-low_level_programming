@@ -5,7 +5,7 @@
  * @dest: character pointer
  * @src: character source
  * Description: copies _strcpy pointed to by src
- * Return : dest
+ * Return: dest
  */
 
 char *_strcpy(char *dest, char *src)
