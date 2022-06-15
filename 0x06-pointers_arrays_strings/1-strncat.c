@@ -20,12 +20,12 @@ char *_strncat(char *dest, char *src, int n)
 		s[i] = dest[i];
 	}
 
-	for (j = 0; j < n; j++)
+	for (j = 0; src[j] != '\0' && j < n; j++)
 	{
 		s[i] = src[j];
 		i++;
 	}
-	s[i] = '\0';
+
 	dest = s;
 
 	return (dest);
