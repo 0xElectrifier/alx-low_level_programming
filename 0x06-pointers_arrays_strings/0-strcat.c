@@ -7,4 +7,29 @@
  *
  * Return: Pointer to the resulting string
  */
+char *_strcat(char *dest, char *src)
+{
+	char *s;
+	int i, j/*, len_src*/;
 
+	s = dest;
+
+	for (i = 0; dest[i] != '\0'; i++)
+	{
+		s[i] = dest[i];
+	}
+/**
+	for (len_src = 0; src[len_src] != '\0'; len_src++)
+		continue;
+*/
+	for (j = 0; src[j] != '\0'; j++)
+	{
+		s[i] = src[j];
+		i++;
+
+	}
+
+	dest = s;
+
+	return (dest);
+}
