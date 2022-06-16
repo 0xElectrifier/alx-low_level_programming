@@ -29,7 +29,7 @@ void reverse_array(int *a, int n)
 
 	if (a[n] != '\0')
 	{
-		for (; i != '\0'; i++)
-			a[i] = a[i];
+		for (; a[n] != '\0'; n++)
+			a[n] = a[n];
 	}
 }
