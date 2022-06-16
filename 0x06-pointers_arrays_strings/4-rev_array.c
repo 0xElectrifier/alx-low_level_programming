@@ -25,11 +25,4 @@ void reverse_array(int *a, int n)
 
 		m--;
 	}
-
-
-	if (a[n] != '\0')
-	{
-		for (; a[n] != '\0'; n++)
-			a[n] = a[n];
-	}
 }
