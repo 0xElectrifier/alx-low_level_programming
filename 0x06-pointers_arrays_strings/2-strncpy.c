@@ -22,15 +22,14 @@ char *_strncpy(char *dest, char *src, int n)
 		else
 			dest[i] = src[i];
 	}
-	if (n < len_dest)
+	if (n <= len_dest)
 	{
 		for (; dest[i] != '\0'; i++)
 		{
 			dest[i] = dest[i];
 		}
+		dest[i] = '\0';
 	}
-
-	dest[i] = '\0';
 
 	return (dest);
 }
