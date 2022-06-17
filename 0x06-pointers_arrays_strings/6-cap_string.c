@@ -39,7 +39,6 @@ char *cap_string(char *n)
 				n[i + 1] = j - 32;
 			}
 		}
-
 	}
 
 	return (n);
