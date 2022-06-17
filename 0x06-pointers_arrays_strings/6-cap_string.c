@@ -20,6 +20,7 @@ int is_symbol(char *n, int i)
 	}
 	return (0);
 }
+
 /**
  * cap_string - Capitalizes all words of a string
  * @n: String to be capitalized
