@@ -13,7 +13,7 @@ int is_symbol(char *n, int i)
 	char s[13] = {',', ';', '.', '!', '?', '"', '(', ')', '{', '}', ' ',
 	'\t', '\n'};
 
-	for (k = 0; k < 13; k++)
+	for (k = 0; s[k] != '\0'; k++)
 	{
 		if (n[i] == s[k])
 			return (2);
