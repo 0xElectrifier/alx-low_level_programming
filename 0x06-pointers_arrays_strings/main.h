@@ -16,6 +16,8 @@ char *string_toupper(char *);
 
 char *cap_string(char *);
 
+int is_symbol(char *n, int i);
+
 char *leet(char *n);
 
 char *rot13(char *str);
