@@ -36,6 +36,8 @@ char *cap_string(char *n)
 	{
 		for (j = 'a'; j <= 'z'; j++)
 		{
+			if ((i == 0) && n[0] == j)
+				n[0] = j - 32;
 			if (is_symbol(n, i) && n[i + 1] == j)
 			{
 				n[i + 1] = j - 32;
