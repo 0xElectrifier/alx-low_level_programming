@@ -15,10 +15,10 @@ int is_symbol(char *n, int i)
 
 	for (k = 0; s[k] != '\0'; k++)
 	{
-		if (n[i] == s[k])
-			return (1);
+		if (n[i] != s[k])
+			return (0);
 	}
-	return (0);
+	return (2);
 }
 /**
  * cap_string - Capitalizes all words of a string
