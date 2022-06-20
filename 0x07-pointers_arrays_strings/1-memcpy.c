@@ -4,6 +4,7 @@
  * _memcpy - function that copies memory area
  * @dest: parameter to be edited
  * @src: get characters to be copied here
+ * @n: first n characters
  *
  * Return: pointer to dest
  */
