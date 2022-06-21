@@ -9,7 +9,7 @@
  *
  * Return: 0 if false, otherwise any number
  */
-int is_equal(char *h, char *n, long int i, long int j)
+int is_equal(char *h, char *n, unsigned int i, unsigned int j)
 {
 	return ((h[i] == n[j]) && (h[i] != '\0' && n[j] != '\0'));
 }
@@ -25,7 +25,7 @@ int is_equal(char *h, char *n, long int i, long int j)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	long int i, j, i1, j1, len_needle;
+	unsigned int i, j, i1, j1, len_needle;
 
 	len_needle = 0;
 	while (needle[len_needle] != '\0')
@@ -48,9 +48,9 @@ char *_strstr(char *haystack, char *needle)
 						i1++;
 						continue;
 					}
-					else if (haystack[i1] != needle[j1])
+					if (haystack[i1] != needle[j1])
 						break;
-					else if (needle[j1] == '\0')
+					if (needle[j1] == '\0')
 						return (haystack + i);
 				}
 			}
