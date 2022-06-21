@@ -9,7 +9,7 @@
  *
  * Return: 0 if false, otherwise any number
  */
-int is_equal(char *h, char *n, unsigned int i, unsigned int j)
+int is_equal(char *h, char *n, int i, int j)
 {
 	return ((h[i] == n[j]) && (h[i] != '\0' && n[j] != '\0'));
 }
@@ -25,7 +25,7 @@ int is_equal(char *h, char *n, unsigned int i, unsigned int j)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j, i1, j1, len_needle;
+	int i, j, i1, j1, len_needle;
 
 	while (needle[len_needle] != '\0')
 		len_needle++;
