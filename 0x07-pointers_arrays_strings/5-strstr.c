@@ -25,7 +25,7 @@ int is_equal(char *h, char *n, int i, int j)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, i1, j1, len_needle;
+	unsigned int i, j, i1, j1, len_needle;
 
 	len_needle = 0;
 	while (needle[len_needle] != '\0')
