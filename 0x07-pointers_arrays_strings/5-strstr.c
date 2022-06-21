@@ -9,7 +9,7 @@
  *
  * Return: 0 if false, otherwise any number
  */
-int is_equal(char *h, char *n, int i, int j)
+int is_equal(char *h, char *n, unsigned int i, unsigned int j)
 {
 	return ((h[i] == n[j]) && (h[i] != '\0' && n[j] != '\0'));
 }
