@@ -54,8 +54,13 @@ char *_strstr(char *haystack, char *needle)
 						break;
 				}
 			}
+			else
+				break;
 
 		}
 	}
+	if (haystack[i] == '\0')
+		return ('\0');
+
 	return ('\0');
 }
