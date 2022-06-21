@@ -48,10 +48,10 @@ char *_strstr(char *haystack, char *needle)
 						i1++;
 						continue;
 					}
-					if (haystack[i1] != needle[j1])
-						break;
 					if (needle[j1] == '\0')
 						return (haystack + i);
+					if (haystack[i1] != needle[j1])
+						break;
 				}
 			}
 			else
