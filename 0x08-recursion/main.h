@@ -20,4 +20,14 @@ int is_prime_number(int n);
 
 int is_n_prime(int n, int i);
 
+int is_palindrome(char *s);
+
+void rev_string(char *r, int i, int _str_len);
+
+int is_palindrome_check(char *s_orig, char *s_rev);
+
+int _strlen(char *s);
+
+void swap(char *a, char *b);
+
 int wildcmp(char *s1, char *s2);
