@@ -11,11 +11,12 @@ int is_prime_number(int n)
 {
 	int i;
 
-	if (n < 0)
-		n = n * -1;
 	i = n - 1;
 
-	return (is_n_prime(n, i));
+	if (n < 2)
+		return (0);
+	else
+		return (is_n_prime(n, i));
 }
 
 /**
@@ -27,8 +28,6 @@ int is_prime_number(int n)
  */
 int is_n_prime(int n, int i)
 {
-	if (n == 1)
-		return (0);
 	if (i == 2)
 		return (1);
 	else if (i > 2)
