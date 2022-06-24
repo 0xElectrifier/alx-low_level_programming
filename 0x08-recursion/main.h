@@ -24,7 +24,7 @@ int is_palindrome(char *s);
 
 void rev_string(char *r, int i, int _str_len);
 
-int is_palindrome_check(char *s_orig, char *s_rev);
+int is_palindrome_check(char *s, int f, int l);
 
 int _strlen(char *s);
 
