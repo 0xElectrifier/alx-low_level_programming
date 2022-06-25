@@ -9,15 +9,15 @@
  */
 int main(int argc, char **argv)
 {
-	int product;
+	long int product;
 
 	if (argc <= 1 || argc > 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	product = atoi(argv[1]) * atoi(argv[2]);
-	printf("%d\n", product);
+	product = atol(argv[1]) * atol(argv[2]);
+	printf("%ld\n", product);
 
 	return (0);
 
