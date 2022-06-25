@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -9,11 +10,9 @@
  */
 int main(int argc, char **argv)
 {
-	int *num, d, *change, c;
-	d = 0; 
-	change = &d;
-	c = atoi(argv[1]);
-	num = &c;
+	int cent, change;
+
+	change = 0;
 
 	if (argc != 2)
 	{
@@ -22,36 +21,43 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	if (*num < 0)
+	cent = atoi(argv[1]);
+
+	if (cent < 0)
 	{
 		printf("0\n");
 
 		return (0);
 	}
 
-	*change = *num / 25;
-	*num = *num % 25;
+	change_cent(&cent, 25, &change);
+	change_cent(&cent, 10, &change);
+	change_cent(&cent, 5, &change);
+	change_cent(&cent, 2, &change);
+	change_cent(&cent, 1, &change);
 
-	*change = *num / 10;
-	*num = *num % 10;
-
-	*change = *num / 5;
-	*num = *num % 5;
-
-	*change = *num / 2;
-	*num = *num % 2;
-
-	*change = *num / 1;
-	*num = *num % 1;
-
-	printf("%d\n", *change);
+	printf("%d\n", change);
 
 	return (0);
 }
+
 /**
-int change_cent(int num, int subt, int change)
+ * change_cent - function that counts how much change a value gives you
+ * @num: pointer to input cent value
+ * @subt: the integer subtrahend
+ * @change: the nubmer of times subt successfully subtracts num
+ *
+ * Return: alwalys 0;
+ */
+int change_cent(int *num, int subt, int *change)
 {
-	for (; num - subt < subt; change++)
-		num -= sub;
-	return (--change);
-}*/
+	int *s_num;
+
+	s_num = num;
+	while (*s_num >= subt)
+	{
+		*s_num -= subt;
+		++*change;
+	}
+	return (0);
+}
