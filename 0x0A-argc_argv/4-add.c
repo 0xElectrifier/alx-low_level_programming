@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 	}
 
 	for (k = 1; k < argc; k++)
-		sum+= atoi(argv[k]);
+		sum += atoi(argv[k]);
 	printf("%d\n", sum);
 
 	return (0);
