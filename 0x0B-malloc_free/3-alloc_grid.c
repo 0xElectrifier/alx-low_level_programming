@@ -13,7 +13,7 @@ int is_positive(int width, int height)
 }
 
 /**
- * free_array - frees a 2D array if malloc fails
+ * free_array - frees a 2D array at row if malloc fails
  * @array: array to be freed
  * @row: the last row where it value was NULL
  *
@@ -23,8 +23,6 @@ int **free_array(int **array, int row)
 {
 	int x;
 
-	if (array == NULL)
-		return (NULL);
 	for (x = row - 1; x >= 0; x--)
 	{
 		if (array[row])
@@ -56,6 +54,11 @@ int **alloc_grid(int width, int height)
 	}
 
 	array = malloc(height * sizeof(int *));
+	if (array == NULL)
+	{
+		free(array);
+		return (NULL);
+	}
 	for (row = 0; row < height; row++)
 	{
 		array[row] = malloc(width * sizeof(int));
