@@ -28,7 +28,10 @@ int **free_array(int **array, int row)
 	for (x = row - 1; x >= 0; x--)
 	{
 		if (array[row])
+		{
 			free(array[row]);
+			array[row] = NULL;
+		}
 	}
 
 	free(array);
