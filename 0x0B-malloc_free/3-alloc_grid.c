@@ -25,10 +25,10 @@ int **free_array(int **array, int row)
 
 	for (x = row - 1; x >= 0; x--)
 	{
-		if (array[row])
+		if (array[x])
 		{
-			free(array[row]);
-			array[row] = NULL;
+			free(array[x]);
+			array[x] = NULL;
 		}
 	}
 
