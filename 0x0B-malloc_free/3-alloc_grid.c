@@ -13,9 +13,10 @@ int is_positive(int width, int height)
 }
 
 /**
- * free_grid - frees a 2D array if malloc fails
+ * free_array - frees a 2D array if malloc fails
  * @array: array to be freed
- * @
+ * @row: the last row where it value was NULL
+ *
  * Return: array
  */
 int **free_array(int **array, int row)
