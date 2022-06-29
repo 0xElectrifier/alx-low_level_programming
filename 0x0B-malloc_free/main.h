@@ -20,4 +20,6 @@ char *argstostr(int ac, char **av);
 
 int len_arr(int argc, char **argv);
 
+char **free_arr(char **array, int row);
+
 char **strtow(char *str);

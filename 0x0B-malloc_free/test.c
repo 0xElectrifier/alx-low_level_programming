@@ -2,12 +2,21 @@
 
 int main(void)
 {
-	char *s;
+/**	char *s;
 
 	s = malloc(0);
 
 	s[0] = 'c';
 
-	printf("%s\n", s);
+*/
+	int i;
+
+	i = 0;
+	i++;
+	printf("%d\n", i);
+
+	i = 5;
+	i++;
+	printf("%d\n", i);
 	return (0);
 }
