@@ -15,8 +15,9 @@ int len_arr(int argc, char **argv)
 	{
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			len = len + 1;
+			len += 1;
 		}
+		len += 1;
 	}
 	return (len);
 }
@@ -37,7 +38,7 @@ char *argstostr(int ac, char **av)
 
 	len_array = len_arr(ac, av);
 
-	str = malloc((len_array + ac) * sizeof(char));
+	str = malloc((len_array + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 
