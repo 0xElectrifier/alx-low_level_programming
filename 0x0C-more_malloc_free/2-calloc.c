@@ -9,14 +9,19 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
+	unsigned int real_size, i;
 	char *str;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	str = malloc(nmemb * size);
+	real_size = nmemb * size;
+	str = malloc(real_size);
 	if (str == NULL)
 		return (NULL);
+
+	for (i = 0; i < real_size; i++)
+		str[i] = 0;
 
 	return (str);
 }
