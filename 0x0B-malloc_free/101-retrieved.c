@@ -77,7 +77,8 @@ char **strtow(char *str)
 			}
 			s[row][col] = '\0';
  
-			k = -1;
+			if (str[j] == ' ' && str[j + 1] != ' ')
+				k = -1;
 			row++;
 		}
 	}
