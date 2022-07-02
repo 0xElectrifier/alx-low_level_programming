@@ -17,6 +17,21 @@ void print_error(void)
 }
 
 /**
+ * print_out - function to print out an array / string
+ * @str: string to output
+ * @strlen: length of 'str'
+ *
+ * Return: nothing
+ */
+void print_out(char *str, int strlen)
+{
+	int i;
+
+	for (i = 0; i < strlen; i++)
+		_putchar(str[i]);
+}
+
+/**
  * has_non_digit - function that checks a string for non digits
  * @str1: first string
  * @str2: second string
@@ -25,7 +40,7 @@ void print_error(void)
  */
 int has_non_digit(char *str1, char *str2)
 {
-	unsigned int i, j;
+	int i, j;
 
 	for (i = 0; str1[i] != '\0'; i++)
 	{
@@ -64,9 +79,9 @@ int _strlen(char *str)
  *
  * Return: void
  */
-void init_arr(char *arr, unsigned int len)
+void init_arr(char *arr, int len)
 {
-	unsigned int i;
+	int i;
 
 	for (i = 0; i < len; i++)
 		arr[i] = '0';
@@ -82,32 +97,46 @@ void init_arr(char *arr, unsigned int len)
  */
 void mul_ext(char *result)
 {
-	int i;
+	int result_len, i, j;
+	char *mul_arr;
 
-	i = _strlen(result) - 1;
-	while (i >= 0 && result[i] = '0')
-		i--;
-	if (i == -1)
+	result_len = _strlen(result) - 1;
+	while (result_len >= 0 && result[result_len] == '0')
+		result_len--;
+	if (result_len == -1)
 		return;
 
+	j = ++result_len;
 
+	mul_arr = malloc((result_len + 1) * sizeof(char));
+	if (mul_arr == NULL)
+		print_error();
+
+	for (i = 0; i < result_len + 1; i++)
+	{
+		mul_arr[i] = result[j - 1];
+		j--;
+	}
+	mul_arr[i] = '\0';
+
+	print_out(mul_arr, result_len + 1);
+
+	free(result);
+	free(mul_arr);
 }
 
 /**
  * mul - function that multiplies two strings
- * @dest: destination string
  * @str1: first string of integers
  * @str2: second string of integers
- * @len1: length of first string
- * @len2: length of second string
  *
  * Return: always 0
  */
-int mul(char *dest, char *str1, char *str2)
+int mul(char *str1, char *str2)
 {
-	unsigned int len1, n1, i, res_n1;
-	unsigned int len2, n2, j, res_n2;
-	int carry, sum;
+	int len1, n1, i, res_n1;
+	int len2, n2, j, res_n2;
+	int carry, sum, result_len;
 	char *result, result_i;
 
 	len1 = _strlen(str1);
@@ -116,24 +145,23 @@ int mul(char *dest, char *str1, char *str2)
 	if (len1 == 0 || len2 == 0)
 		return ('0');
 
-	result = malloc(len1 + len2 + 1);
+	result_len = len1 + len2 + 1;
+	result = malloc(result_len);
 	if (result == NULL)
 		print_error();
-	init_arr(result);
+	init_arr(result, result_len);
 
 	res_n1 = res_n2 = 0;
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		carry = res_n2 = 0;
 		n1 = str1[i] - '0';
-
 		for (j = len2 - 1; j >= 0; j--)
 		{
 			n2 = str2[j] - '0';
 			result_i = result[res_n1 + res_n2];
 
 			sum = n1 * n2 + (result_i - '0') + carry;
-
 			carry = sum / 10;
 			result_i = sum % 10 + '0';
 
@@ -146,9 +174,9 @@ int mul(char *dest, char *str1, char *str2)
 	}
 	mul_ext(result);
 
-
 	return (0);
 }
+
 /**
  * main - function to multiply strings
  * @argc: number of arguments passed at terminal
@@ -158,23 +186,12 @@ int mul(char *dest, char *str1, char *str2)
  */
 int main(int argc, char **argv)
 {
-	int i, len1, len2;
-	char *mul_arr;
-
-	if (argc != 3 || is_not_digit(argv[1], argv[2]))
+	if (argc != 3 || has_non_digit(argv[1], argv[2]))
 	{
 		print_error();
 	}
 
-	len1 = _strlen(argv[1]);
-	len2 = _strlen(argv[2]);
+	mul(argv[1], argv[2]);
 
-	mul_arr = malloc(len1 + len2 + 1);
-	if (mul_arr == NULL)
-		print_error();
-
-	mul(mul_arr, argv[1], argv[2]);
-	
-	
 	return (0);
 }
