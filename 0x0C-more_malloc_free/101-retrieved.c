@@ -28,7 +28,9 @@ void print_out(char *str, int strlen)
 	int i;
 
 	for (i = 0; i < strlen; i++)
+	{
 		_putchar(str[i]);
+	}
 
 	_putchar('\n');
 }
@@ -86,7 +88,7 @@ void init_arr(char *arr, int len)
 {
 	int i;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 		arr[i] = '0';
 
 	arr[i] = '\0';
