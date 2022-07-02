@@ -29,6 +29,8 @@ void print_out(char *str, int strlen)
 
 	for (i = 0; i < strlen; i++)
 		_putchar(str[i]);
+
+	_putchar('\n');
 }
 
 /**
@@ -66,8 +68,9 @@ int _strlen(char *str)
 {
 	int len;
 
-	for (len = 0; str[len] != '\0'; len++)
-		continue;
+	len = 0;
+	while (str[len])
+		len++;
 
 	return (len);
 }
@@ -95,7 +98,7 @@ void init_arr(char *arr, int len)
  *
  * Return: nothing
  */
-void mul_ext(char *result)
+int mul_ext(char *result)
 {
 	int result_len, i, j;
 	char *mul_arr;
@@ -104,7 +107,7 @@ void mul_ext(char *result)
 	while (result_len >= 0 && result[result_len] == '0')
 		result_len--;
 	if (result_len == -1)
-		return;
+		return (1);
 
 	j = ++result_len;
 
@@ -123,6 +126,8 @@ void mul_ext(char *result)
 
 	free(result);
 	free(mul_arr);
+
+	return (0);
 }
 
 /**
@@ -143,7 +148,9 @@ int mul(char *str1, char *str2)
 	len2 = _strlen(str2);
 
 	if (len1 == 0 || len2 == 0)
-		return ('0');
+	{
+		print_error();
+	}
 
 	result_len = len1 + len2 + 1;
 	result = malloc(result_len);
@@ -168,12 +175,14 @@ int mul(char *str1, char *str2)
 			res_n2++;
 		}
 		if (carry > 0)
-			result_i += carry + '0';
+			result[res_n1 + res_n2] += carry + '0';
 
 		res_n1++;
 	}
-	mul_ext(result);
 
+	mul_ext(result);
+	
+	printf("Mull\n");
 	return (0);
 }
 
