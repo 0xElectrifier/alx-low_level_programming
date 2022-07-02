@@ -71,7 +71,7 @@ int _strlen(char *str)
 	int len;
 
 	len = 0;
-	while (str[len])
+	while (str[len] != '\0')
 		len++;
 
 	return (len);
@@ -172,7 +172,7 @@ int mul(char *str1, char *str2)
 
 			sum = n1 * n2 + (result_i - '0') + carry;
 			carry = sum / 10;
-			result_i = sum % 10 + '0';
+			result[res_n1 + res_n2] = sum % 10 + '0';
 
 			res_n2++;
 		}
