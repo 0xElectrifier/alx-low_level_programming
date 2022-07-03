@@ -111,6 +111,7 @@ int mul_ext(char *result)
 	if (result_len == -1)
 	{
 		print_out("0", 1);
+		free(result);
 		return (0);
 	}
 
