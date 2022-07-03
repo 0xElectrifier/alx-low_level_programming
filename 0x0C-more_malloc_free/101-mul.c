@@ -1,91 +1,203 @@
 #include "main.h"
 
 /**
- * _puts - prints a string, followed by a new line,
- * @str: pointer to the string to print
- * Return: void
-*/
-
-
-void _puts(char *str)
-{
-int i = 0;
-while (str[i])
-{
-	_putchar(str[i]);
-	i++;
-}
-
-}
-
-/**
- * _atoi - convert a string to an integer.
- * @s: char type string
- * Return: integer converted
+ * print_error - function to print 'error' and exit(98) status
+ *
+ * Return - nothing
  */
-
-int _atoi(const char *s)
+void print_error(void)
 {
-	int sign = 1;
-	unsigned long int resp = 0, firstNum, i;
+	int i;
+	char *message = "Error\n";
 
-	for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
-	{
-		if (s[firstNum] == '-')
-		{
-			sign *= -1;
-		}
-	}
+	for (i = 0; message[i] != '\0'; i++)
+		_putchar(message[i]);
 
-	for (i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
-	{
-		resp *= 10;
-		resp += (s[i] - 48);
-	}
-
-	return (sign * resp);
-}
-
-/**
- * print_int - prints an integer.
- * @n: int
- * Return: 0
- */
-
-void print_int(unsigned long int n)
-{
-
-unsigned  long int divisor = 1, i, resp;
-
-for (i = 0; n / divisor > 9; i++, divisor *= 10)
-;
-
-for (; divisor >= 1; n %= divisor, divisor /= 10)
-{
-	resp = n / divisor;
-	_putchar('0' + resp);
-}
-
-}
-
-/**
- * main - print the result of the multiplication, followed by a new line
- * @argc: int
- * @argv: list
- * Return: 0
- */
-
-int main(int argc, char const *argv[])
-{
-(void)argc;
-
-if (argc != 3)
-{
-	_puts("Error ");
 	exit(98);
 }
-print_int(_atoi(argv[1]) * _atoi(argv[2]));
-_putchar('\n');
 
-return (0);
+/**
+ * print_out - function to print out an array / string
+ * @str: string to output
+ * @strlen: length of 'str'
+ *
+ * Return: nothing
+ */
+void print_out(char *str, int strlen)
+{
+	int i;
+
+	for (i = 0; i < strlen; i++)
+	{
+		_putchar(str[i]);
+	}
+
+	_putchar('\n');
+}
+
+/**
+ * has_non_digit - function that checks a string for non digits
+ * @str1: first string
+ * @str2: second string
+ *
+ * Return: 0 if false, otherwise any integer
+ */
+int has_non_digit(char *str1, char *str2)
+{
+	int i, j;
+
+	for (i = 0; str1[i] != '\0'; i++)
+	{
+		if (str1[i] < '0' || str1[i] > '9')
+			return (1);
+	}
+	for (j = 0; str2[j] != '\0'; j++)
+	{
+		if (str2[j] < '0' || str2[j] > '9')
+			return (1);
+	}
+
+	return (0);
+}
+
+/**
+ * _strlen - calculates length of string
+ * @str: string to be checked
+ *
+ * Return: length of string
+ */
+int _strlen(char *str)
+{
+	int len;
+
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+
+	return (len);
+}
+
+/**
+ * init_arr - initializes array
+ * @arr: array to initialize
+ * @len: length of array
+ *
+ * Return: void
+ */
+void init_arr(char *arr, int len)
+{
+	int i;
+
+	for (i = 0; i < len - 1; i++)
+		arr[i] = '0';
+
+	arr[i] = '\0';
+}
+
+/**
+ * mul_ext - an extention of mul function that reverses $result and prints it
+ * @result: reversed string of the product of two strings
+ *
+ * Return: nothing
+ */
+int mul_ext(char *result)
+{
+	int result_len, i, j;
+	char *mul_arr;
+
+	result_len = _strlen(result) - 1;
+	while (result_len >= 0 && result[result_len] == '0')
+		result_len--;
+	if (result_len == -1)
+		return (1);
+
+	j = ++result_len;
+
+	mul_arr = malloc((result_len + 1) * sizeof(char));
+	if (mul_arr == NULL)
+		print_error();
+
+	for (i = 0; i < result_len + 1; i++)
+	{
+		mul_arr[i] = result[j - 1];
+		j--;
+	}
+	mul_arr[i] = '\0';
+
+	print_out(mul_arr, result_len + 1);
+
+	free(result);
+	free(mul_arr);
+
+	return (0);
+}
+
+/**
+ * mul - function that multiplies two strings
+ * @str1: first string of integers
+ * @str2: second string of integers
+ *
+ * Return: always 0
+ */
+int mul(char *str1, char *str2)
+{
+	int len1, n1, i, res_n1;
+	int len2, n2, j, res_n2;
+	int carry, sum, result_len;
+	char *result, result_i;
+
+	len1 = _strlen(str1);
+	len2 = _strlen(str2);
+
+	if (len1 == 0 || len2 == 0)
+		print_error();
+
+	result_len = len1 + len2 + 1;
+	result = malloc(result_len);
+	if (result == NULL)
+		print_error();
+	init_arr(result, result_len);
+
+	res_n1 = res_n2 = 0;
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = res_n2 = 0;
+		n1 = str1[i] - '0';
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			n2 = str2[j] - '0';
+			result_i = result[res_n1 + res_n2];
+
+			sum = n1 * n2 + carry + (result_i - '0');
+			carry = sum / 10;
+			result[res_n1 + res_n2] = sum % 10 + '0';
+
+			res_n2++;
+		}
+		if (carry != 0)
+			result[res_n1 + res_n2] = carry + '0';
+		res_n1++;
+	}
+	mul_ext(result);
+
+	return (0);
+}
+
+/**
+ * main - function to multiply strings
+ * @argc: number of arguments passed at terminal
+ * @argv: pointer to the arguments passed at terminal
+ *
+ * Return: 0 always or exit(98) status on error
+ */
+int main(int argc, char **argv)
+{
+	if (argc != 3 || has_non_digit(argv[1], argv[2]))
+	{
+		print_error();
+	}
+
+	mul(argv[1], argv[2]);
+
+	return (0);
 }
