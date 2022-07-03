@@ -150,9 +150,7 @@ int mul(char *str1, char *str2)
 	len2 = _strlen(str2);
 
 	if (len1 == 0 || len2 == 0)
-	{
 		print_error();
-	}
 
 	result_len = len1 + len2 + 1;
 	result = malloc(result_len);
@@ -170,21 +168,18 @@ int mul(char *str1, char *str2)
 			n2 = str2[j] - '0';
 			result_i = result[res_n1 + res_n2];
 
-			sum = n1 * n2 + (result_i - '0') + carry;
+			sum = n1 * n2 + carry + (result_i - '0');
 			carry = sum / 10;
 			result[res_n1 + res_n2] = sum % 10 + '0';
 
 			res_n2++;
 		}
-		if (carry > 0)
-			result[res_n1 + res_n2] += carry + '0';
-
+		if (carry != 0)
+			result[res_n1 + res_n2] = carry + '0';
 		res_n1++;
 	}
-
 	mul_ext(result);
-	
-	printf("Mull\n");
+
 	return (0);
 }
 
