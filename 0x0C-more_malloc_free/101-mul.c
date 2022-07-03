@@ -113,7 +113,7 @@ int mul_ext(char *result)
 
 	j = ++result_len;
 
-	mul_arr = malloc((result_len + 1) * sizeof(char));
+	mul_arr = malloc((result_len) * sizeof(char));
 	if (mul_arr == NULL)
 		print_error();
 
@@ -122,9 +122,8 @@ int mul_ext(char *result)
 		mul_arr[i] = result[j - 1];
 		j--;
 	}
-	mul_arr[i] = '\0';
 
-	print_out(mul_arr, result_len + 1);
+	print_out(mul_arr, result_len);
 
 	free(result);
 	free(mul_arr);
