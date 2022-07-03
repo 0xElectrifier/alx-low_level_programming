@@ -109,7 +109,10 @@ int mul_ext(char *result)
 	while (result_len >= 0 && result[result_len] == '0')
 		result_len--;
 	if (result_len == -1)
-		return (1);
+	{
+		print_out("0", 1);
+		return (0);
+	}
 
 	j = ++result_len;
 
