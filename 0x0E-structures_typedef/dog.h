@@ -4,6 +4,7 @@
  * @age: it age
  * @owner: it owner
  *
+ * Description: Just a struct with info about a dog
  */
 struct dog
 {
