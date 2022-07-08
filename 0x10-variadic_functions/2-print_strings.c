@@ -33,8 +33,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n; i++)
 	{
-		printf("s", va_arg_mod(arg_pointer, char));
+		str = va_arg(arg_pointer, char);
+		if (str = NULL)
+		printf("s", "nil");
+		else
+			printf("s", str);
 		if ( i != (n - 1) && separator != NULL)
 			printf("s", separator);
 	}
+	printf("\n");
 }
