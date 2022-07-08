@@ -12,6 +12,9 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	unsigned int i;
 	va_list arg_pointer;
 
+	if (separator == NULL || n == 0)
+		return;
+
 	va_start(arg_pointer, n);
 
 	for (i = 0; i < n; i++)
