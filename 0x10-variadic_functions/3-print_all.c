@@ -54,9 +54,12 @@ void print_string(va_list arg)
 
 	str = va_arg(arg, char*);
 	if (str == NULL)
+	{
 		printf("(nil)");
-	else
-		printf("%s", str);
+		return;
+	}
+
+	printf("%s", str);
 }
 
 /**
