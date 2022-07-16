@@ -2,7 +2,7 @@
 
 /**
  * print_char - prints character to stdout
- * @arg: argument to be printed
+ * @arg: list of arguments to be printed
  *
  * Return: nothing
  */
@@ -16,7 +16,7 @@ void print_char(va_list arg)
 
 /**
  * print_int - prints integer to stdout
- * @arg: arargument to be printed
+ * @arg: list of arguments to be printed
  *
  * Return: nothing
  */
@@ -30,7 +30,7 @@ void print_int(va_list arg)
 
 /**
  * print_float - prints float to stdout
- * @arg: argument to be printed
+ * @arg: list of arguments to be printed
  *
  * Return: nothing
  */
@@ -44,7 +44,7 @@ void print_float(va_list arg)
 
 /**
  * print_string - prints string to stdout
- * @arg: argument to be printed
+ * @arg: list of arguments to be printed
  *
  * Return: nothing
  */
