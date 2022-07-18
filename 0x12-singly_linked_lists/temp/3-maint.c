@@ -12,10 +12,13 @@ int main(void)
 {
     list_t *head;
 
-    add_node_end(&head, "Anne");
-    add_node_end(&head, "Colton");
-    add_node_end(&head, "Corbin");
-    add_node_end(&head, "Daniel");
+    list_t hello = {"World", 5, NULL};
+
+    head = &hello;
+    add_node_e(head, "Anne");
+  add_node_e(head, "Colton");
+    add_node_e(head, "Corbin");
+/**    add_node_end(&head, "Daniel");
     add_node_end(&head, "Danton");
     add_node_end(&head, "David");
     add_node_end(&head, "Gary");
@@ -40,6 +43,6 @@ int main(void)
     add_node_end(&head, "Timothy");
     add_node_end(&head, "Victor");
     add_node_end(&head, "Walton");
-    print_list(head);
+ */   print_list(head);
     return (0);
 }

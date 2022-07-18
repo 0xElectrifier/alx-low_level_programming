@@ -48,11 +48,11 @@ char *_strdup(const char *str)
  *
  * Return: address of the new element or NULL if it failed
  */
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node_e(list_t *head, const char *str)
 {
 	list_t *new, *copy;
 
-	copy = *head;
+	copy = head;
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 		return (NULL);
@@ -61,8 +61,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	new->len = _strlen(str);
 	new->next = NULL;
 
-	if (*head == NULL)
-		*head = new;
+	if (head == NULL)
+		head = new;
 	else
 	{
 		while (copy->next != NULL)
@@ -73,5 +73,5 @@ list_t *add_node_end(list_t **head, const char *str)
 		copy->next = new;
 	}
 
-	return (*head);
+	return (head);
 }
