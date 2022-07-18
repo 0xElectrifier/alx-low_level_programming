@@ -8,8 +8,11 @@
  */
 size_t print_listint(const listint_t *h)
 {
-	long unsigned int node_count = 0;
-	const listint_t *copy = h;
+	unsigned int node_count;
+	const listint_t *copy;
+
+	node_count = 0;
+	copy = h;
 
 	while (copy != NULL)
 	{
