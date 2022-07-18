@@ -11,7 +11,7 @@ size_t print_listint(const listint_t *h)
 	unsigned int node_count;
 	const listint_t *copy = h;
 
-	while(copy != NULL)
+	while (copy != NULL)
 	{
 		printf("%d\n", copy->n);
 		copy = copy->next;
