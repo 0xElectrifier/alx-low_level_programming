@@ -17,12 +17,11 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	copy = *head;
 	while (idx != 0 && node_count < (idx - 1) && (copy != NULL))
 	{
-		if (copy == NULL)
-			return (NULL);
-
 		copy = copy->next;
 		node_count++;
 	}
+	if (copy == NULL && idx != 0)
+		return (NULL);
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
