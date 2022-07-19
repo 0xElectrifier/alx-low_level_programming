@@ -23,7 +23,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		copy = copy->next;
 		node_count++;
 	}
-	if (copy == NULL || copy->next == NULL)
+	if (copy == NULL)
 		return (NULL);
 	else
 	{
