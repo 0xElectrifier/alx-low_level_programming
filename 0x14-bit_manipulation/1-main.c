@@ -8,7 +8,7 @@
  */
 int main(void)
 {
-    print_binary(1 << 32);
+    print_binary(1 << 22);
     printf("\n");
     print_binary(1);
     printf("\n");
