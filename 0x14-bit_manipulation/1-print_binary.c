@@ -14,7 +14,10 @@ void print_binary(unsigned long int n)
 	i = 31;
 	first_digit = 0;
 	if (n == 0)
+	{
 		_putchar('0');
+		return;
+	}
 
 	while (i >= 0)
 	{
