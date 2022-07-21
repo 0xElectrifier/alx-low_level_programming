@@ -56,7 +56,7 @@ int _pow(int x, int y)
 	num = 1;
 
 	if (y < 0)
-		return -1;
+		return (-1);
 	while (i < y)
 	{
 		num *= x;
