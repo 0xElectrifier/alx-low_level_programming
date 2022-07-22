@@ -22,7 +22,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 	{
 		if (i == index)
 			nt += (1 * bi);
-		nt += ((*n & 1) * bi);
+		else
+			nt += ((*n & 1) * bi);
 
 		*n >>= 1;
 		bi <<= 1;
