@@ -1,7 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-
+#define ULInt unsigned long int
 #include <stdio.h>
 
 int _strlen(const char *s);

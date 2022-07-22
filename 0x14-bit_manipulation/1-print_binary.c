@@ -8,25 +8,28 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int k, first_digit;
+	ULInt first_digit, one, bit, nt;
 	int i;
 
-	i = 31;
+	i = 63;
 	first_digit = 0;
+	one = 1;
+	bit = one << 63;
+	nt = n;
 
-	if (n >> 0)
+	if (nt >> 0)
 	{
 		while (i >= 0)
 		{
-			k = n >> i;
-			if (k & 1)
+			if (n & bit)
 				first_digit++;
 
 			if (first_digit)
 			{
-				_putchar((k & 1) + '0');
+				(n & bit) ? _putchar('1') : _putchar('0');
 			}
 			i--;
+			n <<= 1;
 		}
 	}
 	else
