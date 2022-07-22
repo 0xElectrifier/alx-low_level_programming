@@ -8,9 +8,9 @@
  */
 int main(void)
 {
-    print_binary(1 << 22);
+    print_binary(1UL << 63);
     printf("\n");
-    print_binary(1);
+    print_binary(112233445566);
     printf("\n");
     print_binary(98);
     printf("\n");
