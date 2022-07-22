@@ -1,7 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#define BIT (sizeof(unsigned long int) * 8);
 
 #include <stdio.h>
 
