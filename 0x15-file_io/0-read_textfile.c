@@ -51,7 +51,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (ret == -1)
 		return (0);
 	buf_len = _strlen(buf);
-	if (buf_len < ret)
+	if ((ret < buf_len) && (ret < letters))
 		return (buf_len);
 
 	close(fd);
