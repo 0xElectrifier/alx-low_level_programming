@@ -30,7 +30,7 @@ int _strlen(char *s)
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd, ret, buf_len;
+	ssize_t fd, ret, buf_len;
 	char *buf;
 
 	if (filename == NULL || letters == 0)
@@ -51,11 +51,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (ret == -1)
 		return (0);
 	buf_len = _strlen(buf);
-	if ((ret < buf_len) && (ret < letters))
-		return (buf_len);
+	if ((ret < buf_len) && (ret < (ssize_t)letters))
+		return (0);
+	if (ret < buf_len)
+		return (ret);
 
-	close(fd);
 	free(buf);
+	close(fd);
 
-	return (ret);
+	return (buf_len);
 }
