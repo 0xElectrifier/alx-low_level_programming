@@ -35,7 +35,7 @@ int print_err(int file, int flag, char *sw, char **av)
  */
 int main(int ac, char **av)
 {
-	int file_from, file_to, file_f, file_t, buf_size, c_f1, c_f2;
+	int file_from, file_to, file_t, buf_size, c_f1, c_f2;
 	char buf[1024];
 
 	if (ac != 3)
