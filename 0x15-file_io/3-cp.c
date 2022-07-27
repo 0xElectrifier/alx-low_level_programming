@@ -18,9 +18,11 @@ int print_err(int file, int flag, char *sw, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't %s fd %d\n", sw, file);
 		exit(flag);
 	}
-
-	dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", sw, av[file]);
-	exit(flag);
+	else
+	{
+		dprintf(STDERR_FILENO, "Error: Can't %s file %s\n", sw, av[file]);
+		exit(flag);
+	}
 
 	return (0);
 }
