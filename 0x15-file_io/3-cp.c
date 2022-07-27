@@ -2,8 +2,9 @@
 
 /**
  * print_err - function that prints to stderr
- * @file_from: file descriptor to the original file
- * @file_to: file descriptor to the second file (destination)
+ * @file: index/file descriptor of file that caused error
+ * @flag: contains the exit status of the err
+ * @sw: string of chars
  * @av:pointer to array of pointers to the commands passed on the terminal
  *
  * Return: 0
@@ -49,7 +50,6 @@ int main(int ac, char **av)
 	file_to = open(av[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	if (file_to == -1)
 		print_err(2, WRITE, WRITE_T, av);
-
 	buf_size = 1024;
 	while (buf_size == 1024)
 	{
