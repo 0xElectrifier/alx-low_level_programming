@@ -1,4 +1,3 @@
-
 #!/bin/bash
-wget -P .. https://raw.githubusercontent.com/0xElectrifier/alx-low_level_programming/master/0x18-dynamic_libraries/libgiga.so
-export LD_PRELOAD="$PWD/../libgiga.so"
+wget -P /tmp/ https://raw.github.com/Natzsmart/alx-low_level_programming/main/0x18-dynamic_libraries/preload.so
+export LD_PRELOAD=/tmp/preload.so
