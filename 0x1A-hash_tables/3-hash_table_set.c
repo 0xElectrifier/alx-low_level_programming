@@ -28,7 +28,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	temp = (ht->array)[index];
 	if (temp != NULL)
+	{
 		free(temp);
+		return (0);
+	}
 	(ht->array)[index] = new;
 
 	return (1);
