@@ -16,12 +16,12 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 		return (NULL);
 
 	table_size = ht->size;
-	index = key_index(key, table_size);
+	index = key_index((const unsigned char *)key, table_size);
 	temp = ht->array[index];
 	while (temp != NULL)
 	{
 		if (strcmp(temp->key, key) == 0)
-			return (key->value);
+			return (temp->value);
 		temp = temp->next;
 	}
 
