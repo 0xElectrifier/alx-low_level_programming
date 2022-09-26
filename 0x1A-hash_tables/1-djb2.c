@@ -13,7 +13,7 @@ unsigned long int hash_djb2(const unsigned char *str)
 	i = 0;
 	hash = 5381;
 
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 		hash = ((hash << 5) + hash) + str[i++];
 
 	return (hash);
