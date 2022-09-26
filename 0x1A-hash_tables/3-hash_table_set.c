@@ -24,12 +24,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	new->key = strdup(key);
 	new->value = strdup(value);
+	new->next = ht->array[index];
 
 	temp = (ht->array)[index];
-	if (temp == NULL)
-		new->next = NULL;
-	else
-		new->next = (ht->array)[index];
+	while (temp != NULL)
+	{
+		if (strcmp(temp->key, key) == 0)
+		{
+			new->next = temp->next;
+			free(temp->key);
+			free(temp->value);
+			free(temp);
+			ht->array[index] = new;
+			return (1);
+		}
+		temp = temp->next;
+	}
 
 	(ht->array)[index] = new;
 
