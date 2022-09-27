@@ -42,8 +42,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (key == NULL || ht == NULL)
 		return (0);
 
-	table_size = ht->size;
-	index = key_index((const unsigned char *)key, table_size);
+	t_size = table_size = ht->size;
+	index = key_index((CUC)key, table_size);
 
 	temp = (ht->array)[index];
 	while (temp != NULL)
@@ -68,7 +68,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->next = ht->array[index];
 
 	stemp = ht->shead;
-	if ((stemp == NULL) || (index <= key_index(stemp->key, table_size)))
+	s_index = key_index((CUC) stemp->key, table_size);
+	if ((stemp == NULL) || (index <= s_index))
 	{
 		new->sprev = NULL;
 		new->snext = stemp;
@@ -77,7 +78,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 		while (stemp->snext != NULL)
 		{
-			s_index = key_index((stemp->snext)->key, table_size);
+			s_index = key_index(((CUC) stemp->snext)->key, t_size);
 			if (index <= s_index)
 			{
 				new->sprev = stemp;
