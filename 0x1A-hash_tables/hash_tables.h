@@ -1,6 +1,6 @@
 #ifndef HASH_TABLES
 #define HASH_TABLES
-#define CUC (const unsigned char *)
+#define CUC const unsigned char *
 
 #include <stdlib.h>
 #include <string.h>

@@ -37,7 +37,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	shash_node_t *new, *temp, *stemp;
-	unsigned long int index, s_index, table_size;
+	unsigned long int index, s_index, t_size, table_size;
 
 	if (key == NULL || ht == NULL)
 		return (0);
@@ -68,7 +68,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->next = ht->array[index];
 
 	stemp = ht->shead;
-	s_index = key_index((CUC) stemp->key, table_size);
+	s_index = key_index((CUC)stemp->key, table_size);
 	if ((stemp == NULL) || (index <= s_index))
 	{
 		new->sprev = NULL;
@@ -78,7 +78,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 		while (stemp->snext != NULL)
 		{
-			s_index = key_index(((CUC) stemp->snext)->key, t_size);
+			s_index = key_index(((CUC)stemp->snext)->key, t_size);
 			if (index <= s_index)
 			{
 				new->sprev = stemp;
