@@ -11,6 +11,9 @@ void hash_table_delete(hash_table_t *ht)
 	unsigned long int i, table_len;
 	hash_node_t *copy, *temp;
 
+	if (ht == NULL || size == 0)
+		return;
+
 	i = 0;
 	table_len = ht->size;
 	while (i < table_len)
@@ -21,7 +24,8 @@ void hash_table_delete(hash_table_t *ht)
 			temp = copy;
 			copy = copy->next;
 			free(temp->key);
-			free(temp->value);
+			if (temp->value != NULL)
+				free(temp->value);
 			free(temp);
 		}
 		i++;
