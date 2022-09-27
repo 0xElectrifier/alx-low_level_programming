@@ -68,7 +68,8 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->next = ht->array[index];
 
 	stemp = ht->shead;
-	s_index = key_index((CUC)stemp->key, table_size);
+	if (stemp != NULL)
+		s_index = key_index((CUC)stemp->key, table_size);
 	if ((stemp == NULL) || (index <= s_index))
 	{
 		new->sprev = NULL;
