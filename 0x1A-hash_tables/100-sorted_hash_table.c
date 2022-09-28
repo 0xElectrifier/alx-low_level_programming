@@ -75,7 +75,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		new->sprev = NULL;
 		new->snext = stemp;
 		if (stemp == NULL)
-			ht->stail = stemp
+			ht->stail = stemp;
 		ht->shead = new;
 	}
 	else
