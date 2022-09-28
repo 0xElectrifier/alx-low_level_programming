@@ -27,6 +27,73 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
+ * init_node - initializes a node
+ * @key: key to node
+ * @value: value of new node
+ * 
+ * Return: pointer to the new node
+ */
+shash_node_t *init_node(const char *key, const char *value)
+{
+	shash_node_t *new;
+
+	new = malloc(sizeof(shash_node_t));
+	if (new == NULL)
+		return (NULL);
+	new->key = strdup(key);
+	new->value = strdup(value);
+	new->next = new->sprev = new->snext = NULL;
+
+	return (new);
+}
+
+/**
+ * assign_sorted_list - assigns @node to @ht, sorted On ASCII value
+ * @ht: the hash table
+ * @node: the node to be fixed
+ *
+ * Return: nothing
+ */
+void assign_sorted_list(shash_table_t *ht, shash_node_t *node)
+{
+	unsigned long int table_size, index, s_index;
+	shash_node_t *stemp;
+
+	table_size = ht->size;
+	stemp = ht->shead;
+	if (stemp == NULL && ht->stail == NULL)
+	{
+		ht->shead = ht->stail = node;
+		return;
+	}
+	
+	index = key_index((CUC)node->key, table_size);
+	while (stemp != NULL)
+	{
+		s_index = key_index((CUC)stemp->key, table_size);
+		if (index <= s_index)
+			break;
+		stemp = stemp->snext;
+	}
+	if (stemp == NULL)
+	{
+		ht->stail->snext = node;
+		node->sprev = ht->stail;
+		ht->stail = node;
+
+	}
+	else
+	{
+		if (stemp->sprev == NULL)
+			ht->shead = node;
+		else
+			stemp->sprev->snext = node;
+		node->sprev = stemp->sprev;
+		node->snext = stemp;
+		stemp->sprev = node;
+	}
+}
+/**
  * shash_table_set - assigns value in the shash_table hash table
  * @ht: pointer to the hash table
  * @key: the key to the value
@@ -36,13 +103,14 @@ shash_table_t *shash_table_create(unsigned long int size)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	shash_node_t *new, *temp, *stemp;
-	unsigned long int index, s_index, t_size, table_size;
+	shash_node_t *new, *temp;
+	unsigned long int index, table_size;
 
-	if (key == NULL || ht == NULL || ht->array == NULL || ht->size == 0)
-		return (0);
+        if (ht == NULL || ht->array == NULL || ht->size == 0 ||
+            key == NULL || strlen(key) == 0 || value == NULL)
+                return (0);
 
-	t_size = table_size = ht->size;
+	table_size = ht->size;
 	index = key_index((CUC)key, table_size);
 
 	temp = (ht->array)[index];
@@ -58,45 +126,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		temp = temp->next;
 	}
 
-	new = malloc(sizeof(shash_node_t));
+	new = init_node(key, value);
 	if (new == NULL)
 		return (0);
-	new->key = strdup(key);
-	new->value = strdup(value);
-	new->next = ht->array[index];
-
-	stemp = ht->shead;
-	if (stemp != NULL)
-		s_index = key_index((CUC)stemp->key, table_size);
-	if ((stemp == NULL) || (index <= s_index))
-	{
-		new->sprev = NULL;
-		new->snext = stemp;
-		if (stemp == NULL)
-			ht->stail = new;
-		else
-			stemp->sprev = new;
-		ht->shead = new;
-	}
-	else
-	{
-		while (stemp->snext != NULL)
-		{
-			s_index = key_index((CUC)stemp->snext->key, t_size);
-			if (index <= s_index)
-				break;
-			stemp = stemp->snext;
-		}
-		if (stemp->snext == NULL)
-			ht->stail = new;
-		else
-			stemp->snext->sprev = new;
-		new->sprev = stemp;
-		new->snext = stemp->snext;
-		stemp->snext = new;
-	}
-
 	(ht->array)[index] = new;
+	assign_sorted_list(ht, new);
 
 	return (1);
 }
