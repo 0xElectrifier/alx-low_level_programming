@@ -125,6 +125,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new = init_node(key, value);
 	if (new == NULL)
 		return (0);
+	new->next = ht->array[index];
 	(ht->array)[index] = new;
 	assign_sorted_list(ht, new);
 
