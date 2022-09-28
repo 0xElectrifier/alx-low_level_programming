@@ -39,7 +39,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *new, *temp, *stemp;
 	unsigned long int index, s_index, t_size, table_size;
 
-	if (key == NULL || ht == NULL)
+	if (key == NULL || ht == NULL || ht->array == NULL || ht->size == 0)
 		return (0);
 
 	t_size = table_size = ht->size;
