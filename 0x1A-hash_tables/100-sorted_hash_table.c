@@ -56,10 +56,8 @@ shash_node_t *init_node(const char *key, const char *value)
  */
 void assign_sorted_list(shash_table_t *ht, shash_node_t *node)
 {
-	unsigned long int table_size;
 	shash_node_t *stemp;
 
-	table_size = ht->size;
 	stemp = ht->shead;
 	if (stemp == NULL && ht->stail == NULL)
 	{
