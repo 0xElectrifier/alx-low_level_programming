@@ -30,7 +30,7 @@ shash_table_t *shash_table_create(unsigned long int size)
  * init_node - initializes a node
  * @key: key to node
  * @value: value of new node
- * 
+ *
  * Return: pointer to the new node
  */
 shash_node_t *init_node(const char *key, const char *value)
@@ -102,9 +102,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t *new, *temp;
 	unsigned long int index, table_size;
 
-        if (ht == NULL || ht->array == NULL || ht->size == 0 ||
-            key == NULL || strlen(key) == 0 || value == NULL)
-                return (0);
+	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
+		key == NULL || strlen(key) == 0 || value == NULL)
+		return (0);
 
 	table_size = ht->size;
 	index = key_index((CUC)key, table_size);
