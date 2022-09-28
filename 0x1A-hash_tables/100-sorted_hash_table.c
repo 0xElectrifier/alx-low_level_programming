@@ -87,12 +87,11 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 				break;
 			stemp = stemp->snext;
 		}
+		if (stemp->snext == NULL)
+			ht->stail = new;
 		new->sprev = stemp;
 		new->snext = stemp->snext;
-		if (stemp->snext == NULL)
-			ht->stail = stemp;
 		stemp->snext = new;
-
 	}
 
 	(ht->array)[index] = new;
