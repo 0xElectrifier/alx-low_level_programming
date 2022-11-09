@@ -6,9 +6,7 @@ SRC = main.c school.c
 OBJ = $(SRC:%.c=%.o)
 NAME = $(OBJ:%.o=%)
 
-all: school
-
-school: ${OBJ}
+all: ${OBJ}
 	gcc ${OBJ} -o school
 
 ${OBJ}.o: ${SRC}
