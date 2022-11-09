@@ -11,5 +11,5 @@ all: school
 school: ${OBJ}
 	gcc ${OBJ} -o school
 
-%.o: %.c
+${OBJ}.o: ${SRC}
 	gcc -c -o $@ $<
