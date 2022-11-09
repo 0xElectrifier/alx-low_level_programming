@@ -1,1 +1,7 @@
+# Usage:
+# make -f 0-Makefile		#compile 'school.c' into 'school' executable
+
 all: school
+
+school: school.c
+	gcc main.c school.c -o school
