@@ -5,5 +5,4 @@ CC = gcc
 SRC := $(wildcard *.c)
 
 all: ${SRC}
-	${CC} ${SRC} -o $@
-	
+	${CC} ${SRC} -o school
