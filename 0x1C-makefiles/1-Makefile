@@ -1,0 +1,10 @@
+# Usage:
+# make -f 1-Makefile		#compiles all files with the '.c' extention
+
+CC = gcc			#compiler to be used
+SRC := $(wildcard *.c)
+
+all: school
+
+school: ${SRC}
+	${CC} ${SRC} -o $@
