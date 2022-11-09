@@ -9,5 +9,5 @@ NAME = $(OBJ:%.o=%)
 all: ${OBJ}
 	gcc ${OBJ} -o school
 
-${OBJ}.o: ${SRC}
+${OBJ}: ${SRC}
 	gcc -c -o $@ $<
