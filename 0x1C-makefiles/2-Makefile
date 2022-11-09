@@ -6,10 +6,10 @@ SRC = main.c school.c
 OBJ = $(SRC:%.c=%.o)
 NAME = $(OBJ:%.o=%)
 
-all: ${NAME}
+all: school
 
-%: %.o
-	gcc $< -o $@
+school: ${OBJ}
+	gcc ${OBJ} -o school
 
 %.o: %.c
-	gcc -c $<
+	gcc -c $< -o $@
