@@ -1,0 +1,15 @@
+# Usage:
+# make -f 2-Makefile			#compiles 
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o)
+NAME = $(OBJ:%.o=%)
+
+all: ${NAME}
+
+%: %.o
+	gcc $< -o $@
+
+%.o: %.c
+	gcc -c $<
