@@ -12,4 +12,4 @@ school: ${OBJ}
 	gcc ${OBJ} -o school
 
 %.o: %.c
-	gcc -c $< -o $@
+	gcc -c -o $@ $<
