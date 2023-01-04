@@ -24,8 +24,6 @@ int binary_search(int *array, size_t size, int value)
 		for (i = L; i <= R; i++)
 		{
 			printf(" %d", array[i]);
-			/*if (i != L)
-				printf(" ");*/
 		}
 		printf("\n");
 
